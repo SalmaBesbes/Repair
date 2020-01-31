@@ -1,0 +1,13 @@
+Library/
+build/
+Temp/UnityLockfile
+Temp/
+.vs/
+*.csproj
+*.cache
+.localhistory/
+Logs/
+obj/
+obj/Debug/
+Assets/Images/
+Recordings/
