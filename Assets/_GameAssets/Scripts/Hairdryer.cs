@@ -7,6 +7,7 @@ public class Hairdryer : MonoBehaviour
 {
     Image sp;
     Color c;
+    Vector3 scaleChange;
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.tag == "iceberg")
@@ -17,8 +18,10 @@ public class Hairdryer : MonoBehaviour
             }
             else
             {
+                scaleChange = new Vector3(-0.01f, -0.01f, -0.01f);
+                collision.transform.localScale += scaleChange;
                 c = sp.color;
-                c.a = c.a - 0.02f;
+                c.a = c.a - 0.015f;
                 sp.color = c;
             }
         }
