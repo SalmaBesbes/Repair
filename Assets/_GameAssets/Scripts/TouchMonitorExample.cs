@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TouchMonitorExample : MonoBehaviour, IInputListener
 {
@@ -22,7 +23,7 @@ public class TouchMonitorExample : MonoBehaviour, IInputListener
 
     private void Start()
     {
-        TouchInputEventManager.RegisterForPointerEvent(this, TouchInputEventManager.ePointerEvent.OnPointerClick);
+        //TouchInputEventManager.RegisterForPointerEvent(this, TouchInputEventManager.ePointerEvent.OnPointerClick);
         TouchInputEventManager.RegisterForPointerEvent(this, TouchInputEventManager.ePointerEvent.OnPointerDown);
         TouchInputEventManager.RegisterForPointerEvent(this, TouchInputEventManager.ePointerEvent.OnPointerSwipeUpdate);
         TouchInputEventManager.RegisterForPointerEvent(this, TouchInputEventManager.ePointerEvent.OnPointerUp);
@@ -159,9 +160,28 @@ public class TouchMonitorExample : MonoBehaviour, IInputListener
             if ((DraggleObjectScript != null) && (DraggleObjectScript.inTrigger))
             {
                 DraggleObject.gameObject.layer = 0;
+                if (DraggleObject.gameObject.tag == "hearts")
+                {
+                    GameObject.FindGameObjectWithTag("particleheart").GetComponentInChildren<ParticleSystem>().Play();
+                    UIManager.ShowUiElement("heart", "GGJ");
+                    Destroy(DraggleObject);
+                }
+                if (DraggleObject.gameObject.tag == "thor")
+                {
+                    UIManager.ShowUiElement("thor", "GGJ");
+                    Destroy(DraggleObject);
+                }
             }
             else
             {
+                if (DraggleObject.gameObject.tag == "sechoire")
+                {
+                    if (GameObject.FindGameObjectWithTag("iceberg").GetComponent<Image>().color.a <= 0.5)
+                    {
+                        UIManager.ShowUiElement("sechoir", "GGJ");
+                        Destroy(DraggleObject);
+                    }
+                }
                 DraggleObject.GetComponent<TargetJoint2D>().enabled = true;
             }
         }
