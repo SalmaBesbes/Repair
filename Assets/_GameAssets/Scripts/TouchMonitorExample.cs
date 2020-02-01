@@ -23,7 +23,7 @@ public class TouchMonitorExample : MonoBehaviour, IInputListener
 
     private void Start()
     {
-        TouchInputEventManager.RegisterForPointerEvent(this, TouchInputEventManager.ePointerEvent.OnPointerClick);
+        //TouchInputEventManager.RegisterForPointerEvent(this, TouchInputEventManager.ePointerEvent.OnPointerClick);
         TouchInputEventManager.RegisterForPointerEvent(this, TouchInputEventManager.ePointerEvent.OnPointerDown);
         TouchInputEventManager.RegisterForPointerEvent(this, TouchInputEventManager.ePointerEvent.OnPointerSwipeUpdate);
         TouchInputEventManager.RegisterForPointerEvent(this, TouchInputEventManager.ePointerEvent.OnPointerUp);
