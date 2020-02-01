@@ -6,6 +6,13 @@ TagManager:
   tags:
   - iceberg
   - 'strom breaker '
+  - hearts
+  - particleheart
+  - FxTemporaire
+  - saber
+  - sechoire
+  - boat
+  - thor
   layers:
   - Default
   - TransparentFX

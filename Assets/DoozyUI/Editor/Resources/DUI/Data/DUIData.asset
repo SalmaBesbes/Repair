@@ -55,9 +55,13 @@ MonoBehaviour:
         m_Value: 0
     - categoryName: GGJ
       itemNames:
+      - boat
       - check
       - heart
+      - saber
+      - sechoir
       - Slot
+      - thor
       isExpanded:
         m_Target: 1
         speed: 2
