@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Hairdryer : MonoBehaviour
 {
-    SpriteRenderer sp;
+    Image sp;
     Color c;
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -12,7 +13,7 @@ public class Hairdryer : MonoBehaviour
         {
             if (sp ==null)
             {
-                sp = collision.GetComponent<SpriteRenderer>();
+                sp = collision.GetComponent<Image>();
             }
             else
             {

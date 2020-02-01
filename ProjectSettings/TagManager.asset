@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - iceberg
+  - 'strom breaker '
   layers:
   - Default
   - TransparentFX
@@ -15,7 +16,7 @@ TagManager:
   - 
   - 
   - Draggble
-  - 
+  - Targets
   - 
   - 
   - 
@@ -44,4 +45,7 @@ TagManager:
     locked: 0
   - name: items
     uniqueID: 3285449465
+    locked: 0
+  - name: Stars
+    uniqueID: 1381642349
     locked: 0

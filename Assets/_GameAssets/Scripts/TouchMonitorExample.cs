@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using DoozyUI;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -68,6 +69,8 @@ public class TouchMonitorExample : MonoBehaviour, IInputListener
     #endregion
 
     GameObject DraggleObject;
+    TargetJoint2D DraggleObjectTJ;
+    Dragable DraggleObjectScript;
 
     public void OnPointerDown(PointerInfo pointerInfo)
     {
@@ -79,7 +82,9 @@ public class TouchMonitorExample : MonoBehaviour, IInputListener
             draggable = true;
             Offset = inputScreenToWordPosition - (Vector2)rayHit.collider.transform.position;
             DraggleObject = rayHit.collider.gameObject;
-            rayHit.collider.gameObject.GetComponent<TargetJoint2D>().enabled= false;
+            DraggleObjectTJ = rayHit.collider.gameObject.GetComponent<TargetJoint2D>();
+            DraggleObjectTJ.enabled = false;
+            DraggleObjectScript = rayHit.collider.gameObject.GetComponent<Dragable>();
         }
     }
 
@@ -151,7 +156,14 @@ public class TouchMonitorExample : MonoBehaviour, IInputListener
         if (draggable)
         {
             draggable = false;
-            DraggleObject.GetComponent<TargetJoint2D>().enabled = true;
+            if ((DraggleObjectScript != null) && (DraggleObjectScript.inTrigger))
+            {
+                DraggleObject.gameObject.layer = 0;
+            }
+            else
+            {
+                DraggleObject.GetComponent<TargetJoint2D>().enabled = true;
+            }
         }
     }
 

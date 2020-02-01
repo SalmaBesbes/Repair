@@ -55,6 +55,8 @@ MonoBehaviour:
         m_Value: 0
     - categoryName: GGJ
       itemNames:
+      - check
+      - heart
       - Slot
       isExpanded:
         m_Target: 1
