@@ -55,12 +55,16 @@ MonoBehaviour:
         m_Value: 0
     - categoryName: GGJ
       itemNames:
+      - blackfade
       - boat
       - check
       - heart
+      - Inventaire
       - saber
       - sechoir
       - Slot
+      - starwars
+      - swintro
       - thor
       isExpanded:
         m_Target: 1
