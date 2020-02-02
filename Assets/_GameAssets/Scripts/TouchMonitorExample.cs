@@ -164,6 +164,7 @@ public class TouchMonitorExample : MonoBehaviour, IInputListener
                 {
                     GameObject.FindGameObjectWithTag("particleheart").GetComponentInChildren<ParticleSystem>().Play();
                     UIManager.ShowUiElement("heart", "GGJ");
+                    UIManager.ShowUiElement("blackfade2", "GGJ");
                     Destroy(DraggleObject);
                 }
                 if (DraggleObject.gameObject.tag == "thor")
