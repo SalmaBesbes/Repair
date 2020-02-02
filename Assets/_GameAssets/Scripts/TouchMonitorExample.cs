@@ -169,6 +169,8 @@ public class TouchMonitorExample : MonoBehaviour, IInputListener
                 }
                 if (DraggleObject.gameObject.tag == "thor")
                 {
+                    GameObject.FindGameObjectWithTag("sb").GetComponent<Image>().enabled=true;
+                    GameObject.FindGameObjectWithTag("viseur").transform.GetChild(0).gameObject.SetActive(true);
                     UIManager.ShowUiElement("thor", "GGJ");
                     Destroy(DraggleObject);
                 }

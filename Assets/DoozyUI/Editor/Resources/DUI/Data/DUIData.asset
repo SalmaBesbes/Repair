@@ -67,6 +67,9 @@ MonoBehaviour:
       - starwars
       - swending
       - swintro
+      - thanos
+      - thanos ending
+      - thanosintro
       - thor
       isExpanded:
         m_Target: 1
