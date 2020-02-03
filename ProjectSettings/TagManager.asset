@@ -15,6 +15,7 @@ TagManager:
   - thor
   - sb
   - viseur
+  - trigger
   layers:
   - Default
   - TransparentFX

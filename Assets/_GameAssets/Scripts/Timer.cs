@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
@@ -8,11 +9,12 @@ public class Timer : MonoBehaviour
     public static Timer TimerClass;
 
     public float MaxTimer;
-    public SpriteRenderer PopcornSprite;
+    public Image PopcornSprite;
 
     public float myTimer;
 
     public Sprite[] PopCornsTimer;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,9 +26,12 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        myTimer -= Time.deltaTime;
+        if (myTimer >= 0)
+        {
+            myTimer -= Time.deltaTime;
 
-        PopcornState(Mathf.RoundToInt(myTimer));
+            PopcornState(Mathf.RoundToInt(myTimer));
+        }
     }
 
     public void ResetTimer()

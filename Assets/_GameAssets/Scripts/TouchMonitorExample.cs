@@ -86,6 +86,10 @@ public class TouchMonitorExample : MonoBehaviour, IInputListener
             DraggleObjectTJ = rayHit.collider.gameObject.GetComponent<TargetJoint2D>();
             DraggleObjectTJ.enabled = false;
             DraggleObjectScript = rayHit.collider.gameObject.GetComponent<Dragable>();
+            if (DraggleObject.tag == "sechoire")
+            {
+                _audio.Play();
+            }
         }
     }
 
@@ -103,11 +107,13 @@ public class TouchMonitorExample : MonoBehaviour, IInputListener
 
     Vector2 OldPointPostion;
     Vector2 CurrentPointPosition;
+    public AudioSource _audio;
 
     public void OnPointerSwipeUpdate(PointerInfo pointerInfo, Swipe currentSwipe, bool newWaypoint)
     {
         if (draggable)
         {
+
             if (currentSwipe.Waypoints.Count > 2)
             {
 
@@ -156,6 +162,10 @@ public class TouchMonitorExample : MonoBehaviour, IInputListener
     {
         if (draggable)
         {
+            if (DraggleObject.tag == "sechoire")
+            {
+                _audio.Stop();
+            }
             draggable = false;
             if ((DraggleObjectScript != null) && (DraggleObjectScript.inTrigger))
             {
@@ -172,6 +182,7 @@ public class TouchMonitorExample : MonoBehaviour, IInputListener
                     GameObject.FindGameObjectWithTag("sb").GetComponent<Image>().enabled=true;
                     GameObject.FindGameObjectWithTag("viseur").transform.GetChild(0).gameObject.SetActive(true);
                     UIManager.ShowUiElement("thor", "GGJ");
+                    UIManager.ShowUiElement("thunder", "GGJ");
                     Destroy(DraggleObject);
                 }
             }
@@ -179,7 +190,7 @@ public class TouchMonitorExample : MonoBehaviour, IInputListener
             {
                 if (DraggleObject.gameObject.tag == "sechoire")
                 {
-                    if (GameObject.FindGameObjectWithTag("iceberg").GetComponent<Image>().color.a <= 0.5)
+                    if (GameObject.FindGameObjectWithTag("iceberg").GetComponent<Image>().color.a <= 0.05)
                     {
                         UIManager.ShowUiElement("sechoir", "GGJ");
                         Destroy(DraggleObject);
